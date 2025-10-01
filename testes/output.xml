@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on win32)" generated="2025-10-01T18:08:38.240340" rpa="false" schemaversion="5">
+<suite id="s1" name="Product Validation Tests" source="c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\testes\tests\suites\product_validation_tests.robot">
+<test id="s1-t1" name="Cenario P-002 - Deve Cadastrar Produto com Sucesso" line="11">
+<kw name="Criar Sessão" owner="api_keywords" type="SETUP">
+<msg time="2025-10-01T18:08:38.539294" level="FAIL">Variable '${BASE_URL}' not found.</msg>
+<arg>${BASE_URL}</arg>
+<status status="FAIL" start="2025-10-01T18:08:38.538330" elapsed="0.003388">Variable '${BASE_URL}' not found.</status>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Excluir Produto ${PRODUCT_ID}">
+<msg time="2025-10-01T18:08:38.545006" level="FAIL">No keyword with name 'Excluir Produto ${PRODUCT_ID}' found. Did you try using keyword 'api_keywords.Excluir Produto' and forgot to use enough whitespace between keyword and arguments?</msg>
+<status status="FAIL" start="2025-10-01T18:08:38.544879" elapsed="0.000285">No keyword with name 'Excluir Produto ${PRODUCT_ID}' found. Did you try using keyword 'api_keywords.Excluir Produto' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<arg>Excluir Produto ${PRODUCT_ID}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="FAIL" start="2025-10-01T18:08:38.542858" elapsed="0.002469">No keyword with name 'Excluir Produto ${PRODUCT_ID}' found. Did you try using keyword 'api_keywords.Excluir Produto' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<tag>P2</tag>
+<tag>Produto</tag>
+<tag>Regressao</tag>
+<status status="FAIL" start="2025-10-01T18:08:38.537527" elapsed="0.010490">Setup failed:
+Variable '${BASE_URL}' not found.
+
+Also teardown failed:
+No keyword with name 'Excluir Produto ${PRODUCT_ID}' found. Did you try using keyword 'api_keywords.Excluir Produto' and forgot to use enough whitespace between keyword and arguments?</status>
+</test>
+<status status="FAIL" start="2025-10-01T18:08:38.245445" elapsed="0.305228"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">P2</stat>
+<stat pass="0" fail="1" skip="0">Produto</stat>
+<stat pass="0" fail="1" skip="0">Regressao</stat>
+</tag>
+<suite>
+<stat name="Product Validation Tests" id="s1" pass="0" fail="1" skip="0">Product Validation Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-10-01T18:08:38.269913" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\testes\tests\resources\api_keywords.robot' on line 22: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-01T18:08:38.270473" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\testes\tests\resources\api_keywords.robot' on line 38: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-01T18:08:38.271318" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\testes\tests\resources\api_keywords.robot' on line 54: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-01T18:08:38.272155" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\testes\tests\resources\api_keywords.robot' on line 60: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
