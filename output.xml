@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on win32)" generated="2025-10-02T15:03:26.759236" rpa="false" schemaversion="5">
+<suite id="s1" name="User Validation Tests" source="c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\tests\suites\user_validation_tests.robot">
+<test id="s1-t1" name="Cenario U-010 - Deve buscar usuario existente e retornar as informações corretas (U-002 - P4)" line="74">
+<kw name="Criar Sessao Com URL Base" owner="api_keywords" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-10-02T15:03:27.310979" level="INFO">Creating Session using : alias=serveRest, url=https://serverest.dev, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>${session_alias}</arg>
+<arg>${base_url}</arg>
+<arg>headers=${HEADER_DEFAULT}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-02T15:03:27.310430" elapsed="0.004140"/>
+</kw>
+<arg>serveRest</arg>
+<arg>${BASE_URL}</arg>
+<status status="PASS" start="2025-10-02T15:03:27.308839" elapsed="0.006108"/>
+</kw>
+<kw name="Gerar Usuario Aleatorio" owner="login_keywords">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-10-02T15:03:27.319625" level="INFO">${nome} = Evelyn Siqueira</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-10-02T15:03:27.319063" elapsed="0.001483"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-10-02T15:03:27.321411" level="INFO">${email} = maria-juliada-mata@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-10-02T15:03:27.320898" elapsed="0.001036"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-02T15:03:27.323043" level="INFO">${senha} = 12345</msg>
+<var>${senha}</var>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.322509" elapsed="0.000760"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-02T15:03:27.323914" level="INFO">${administrador} = true</msg>
+<var>${administrador}</var>
+<arg>true</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.323562" elapsed="0.000609"/>
+</kw>
+<return>
+<value>${nome}</value>
+<value>${email}</value>
+<value>${senha}</value>
+<value>${administrador}</value>
+<status status="PASS" start="2025-10-02T15:03:27.324356" elapsed="0.000222"/>
+</return>
+<msg time="2025-10-02T15:03:27.325057" level="INFO">${nome} = Evelyn Siqueira</msg>
+<msg time="2025-10-02T15:03:27.325961" level="INFO">${email} = maria-juliada-mata@example.net</msg>
+<msg time="2025-10-02T15:03:27.326155" level="INFO">${senha} = 12345</msg>
+<msg time="2025-10-02T15:03:27.326277" level="INFO">${administrador} = true</msg>
+<var>${nome}</var>
+<var>${email}</var>
+<var>${senha}</var>
+<var>${administrador}</var>
+<status status="PASS" start="2025-10-02T15:03:27.318139" elapsed="0.008250"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-02T15:03:27.327771" level="INFO">${body} = {'nome': 'Evelyn Siqueira', 'email': 'maria-juliada-mata@example.net', 'password': '12345', 'administrador': 'true'}</msg>
+<var>${body}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<arg>administrador=${administrador}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.327084" elapsed="0.000820"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-10-02T15:03:27.770518" level="INFO">POST Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '116'} 
+ body=b'{"nome": "Evelyn Siqueira", "email": "maria-juliada-mata@example.net", "password": "12345", "administrador": "true"}' 
+ </msg>
+<msg time="2025-10-02T15:03:27.771208" level="INFO">POST Response : url=https://serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '54f3f1cc2cb042548b3cd3d409924205;o=1', 'date': 'Thu, 02 Oct 2025 18:03:27 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "PNRYkqwqEQEWJpjh"
+} 
+ </msg>
+<msg time="2025-10-02T15:03:27.771546" level="INFO">C:\Users\andre\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-02T15:03:27.772554" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serveRest</arg>
+<arg>/usuarios</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.328542" elapsed="0.444311"/>
+</kw>
+<kw name="Obter ID Da Resposta" owner="api_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-02T15:03:27.776610" level="INFO">${id} = PNRYkqwqEQEWJpjh</msg>
+<var>${id}</var>
+<arg>${response.json()}[_id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.775303" elapsed="0.001551"/>
+</kw>
+<return>
+<value>${id}</value>
+<status status="PASS" start="2025-10-02T15:03:27.777082" elapsed="0.000212"/>
+</return>
+<msg time="2025-10-02T15:03:27.777665" level="INFO">${id_usuario} = PNRYkqwqEQEWJpjh</msg>
+<var>${id_usuario}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2025-10-02T15:03:27.774426" elapsed="0.003431"/>
+</kw>
+<kw name="Buscar Usuario Por ID E Validar" owner="user_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-10-02T15:03:27.961666" level="INFO">GET Request : url=https://serverest.dev/usuarios/PNRYkqwqEQEWJpjh 
+ path_url=/usuarios/PNRYkqwqEQEWJpjh 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2025-10-02T15:03:27.964041" level="INFO">GET Response : url=https://serverest.dev/usuarios/PNRYkqwqEQEWJpjh 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '0b62aed441fdfefb8b3cd3d409924210', 'date': 'Thu, 02 Oct 2025 18:03:27 GMT', 'server': 'Google Frontend', 'Content-Length': '165'} 
+ body={
+    "nome": "Evelyn Siqueira",
+    "email": "maria-juliada-mata@example.net",
+    "password": "12345",
+    "administrador": "true",
+    "_id": "PNRYkqwqEQEWJpjh"
+} 
+ </msg>
+<msg time="2025-10-02T15:03:27.964733" level="INFO">C:\Users\andre\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-02T15:03:27.967686" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serveRest</arg>
+<arg>/usuarios/${id_usuario}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.779841" elapsed="0.188328"/>
+</kw>
+<kw name="Validar Status Code" owner="api_keywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-10-02T15:03:27.971448" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.970032" elapsed="0.001801"/>
+</kw>
+<arg>${response}</arg>
+<arg>200</arg>
+<status status="PASS" start="2025-10-02T15:03:27.968975" elapsed="0.003144"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[nome]</arg>
+<arg>${nome_esperado}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.972451" elapsed="0.001281"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[email]</arg>
+<arg>${email_esperado}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.974112" elapsed="0.001164"/>
+</kw>
+<arg>${id_usuario}</arg>
+<arg>${nome}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-10-02T15:03:27.779008" elapsed="0.196508"/>
+</kw>
+<kw name="Deletar Usuario Pelo ID" owner="user_keywords">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-10-02T15:03:28.153040" level="INFO">DELETE Request : url=https://serverest.dev/usuarios/PNRYkqwqEQEWJpjh 
+ path_url=/usuarios/PNRYkqwqEQEWJpjh 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-10-02T15:03:28.153617" level="INFO">DELETE Response : url=https://serverest.dev/usuarios/PNRYkqwqEQEWJpjh 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'cb99cec0cb8ecccc8b3cd3d40992462d', 'date': 'Thu, 02 Oct 2025 18:03:27 GMT', 'server': 'Google Frontend', 'Content-Length': '51'} 
+ body={
+    "message": "Registro excluído com sucesso"
+} 
+ </msg>
+<msg time="2025-10-02T15:03:28.153927" level="INFO">C:\Users\andre\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-02T15:03:28.155030" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serveRest</arg>
+<arg>/usuarios/${id_usuario}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-02T15:03:27.977877" elapsed="0.177444"/>
+</kw>
+<arg>${id_usuario}</arg>
+<status status="PASS" start="2025-10-02T15:03:27.977078" elapsed="0.178571"/>
+</kw>
+<status status="PASS" start="2025-10-02T15:03:27.307324" elapsed="0.849445"/>
+</test>
+<status status="PASS" start="2025-10-02T15:03:26.764516" elapsed="1.395601"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="User Validation Tests" id="s1" pass="1" fail="0" skip="0">User Validation Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-10-02T15:03:26.793641" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\tests\resources\login_keywords.robot' on line 13: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-02T15:03:26.794679" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\tests\resources\login_keywords.robot' on line 22: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-02T15:03:26.795849" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\tests\resources\login_keywords.robot' on line 32: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-02T15:03:27.175696" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\tests\resources\api_keywords.robot' on line 27: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-02T15:03:27.301323" level="WARN">Error in file 'c:\Users\andre\Documents\Estágio_Compass_UOL\Challenge 3\tests\resources\user_keywords.robot' on line 28: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
