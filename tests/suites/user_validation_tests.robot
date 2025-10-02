@@ -9,13 +9,13 @@ Cenario U-001 - Cadastrar Usuario com email não repetido (U-004 - P1)
     ${email}    ${senha}    ${id_usuario}=    Cadastrar Usuario Novo Com Sucesso
     Deletar Usuario Pelo ID    ${id_usuario}
 
-Cenario U-002 - Deve Cadastrar Usuario com Senha de 4 Caracteres (P2)
+Cenario U-002 - Deve Falhar ao tentar Cadastrar Usuario com Senha de 4 Caracteres (P2)
     ${nome}    ${email}    ${senha}    ${administrador}=    Gerar Usuario Aleatorio
     ${body}=    Create Dictionary    nome=${nome}    email=${email}    password=${SENHA_INVALIDA_4}    administrador=true
-    ${response}=    POST On Session    serveRest    /usuarios    json=${body}
-    Validar Status Code    ${response}    201
-    ${id_usuario}=    Obter ID Da Resposta    ${response}
-    Deletar Usuario Pelo ID    ${id_usuario}
+    ${response}=    POST On Session    serveRest    /usuarios    json=${body}    expected_status=400
+    Validar Status Code    ${response}    400
+    Validar Mensagem Da Resposta    ${response}    Senha fora dos limites possíveis
+
 
 Cenario U-003 - Deve Cadastrar com Senha de 5 Caracteres (Borda Válida - P2)
     ${nome}    ${email}    ${senha}    ${administrador}=    Gerar Usuario Aleatorio
@@ -25,13 +25,12 @@ Cenario U-003 - Deve Cadastrar com Senha de 5 Caracteres (Borda Válida - P2)
     ${id_usuario}=    Obter ID Da Resposta    ${response}
     Deletar Usuario Pelo ID    ${id_usuario}
 
-Cenario U-004 - Deve Cadastrar Usuario com Senha de 11 Caracteres (P2)
+Cenario U-004 - Deve Falhar ao tentar Cadastrar Usuario com Senha de 11 Caracteres (P2)
     ${nome}    ${email}    ${senha}    ${administrador}=    Gerar Usuario Aleatorio
     ${body}=    Create Dictionary    nome=${nome}    email=${email}    password=${SENHA_INVALIDA_11}    administrador=true
-    ${response}=    POST On Session    serveRest    /usuarios    json=${body}
-    Validar Status Code    ${response}    201
-    ${id_usuario}=    Obter ID Da Resposta    ${response}
-    Deletar Usuario Pelo ID    ${id_usuario}
+    ${response}=    POST On Session    serveRest    /usuarios    json=${body}    expected_status=400
+    Validar Status Code    ${response}    400
+    Validar Mensagem Da Resposta    ${response}    Senha fora dos limites possíveis
 
 Cenario U-005 - Deve Cadastrar com Senha de 10 Caracteres (Borda Válida - P2)
     ${nome}    ${email}    ${senha}    ${administrador}=    Gerar Usuario Aleatorio
@@ -41,23 +40,21 @@ Cenario U-005 - Deve Cadastrar com Senha de 10 Caracteres (Borda Válida - P2)
     ${id_usuario}=    Obter ID Da Resposta    ${response}
     Deletar Usuario Pelo ID    ${id_usuario}
 
-Cenario U-006 - Deve Cadastrar Usuario com Email do Gmail (P2)
+Cenario U-006 - Deve Falhar ao Tentar Cadastrar Usuario com Email do Gmail (P2)
     ${email}=    Gerar Email Restrito Dinamico    @gmail.com
     ${nome}=    FakerLibrary.Name
     ${body}=    Create Dictionary    nome=${nome}    email=${email}    password=${SENHA_VALIDA}    administrador=true
-    ${response}=    POST On Session    serveRest    /usuarios    json=${body}
-    Validar Status Code    ${response}    201
-    ${id_usuario}=    Obter ID Da Resposta    ${response}
-    Deletar Usuario Pelo ID    ${id_usuario}
+    ${response}=    POST On Session    serveRest    /usuarios    json=${body}    expected_status=400
+    Validar Status Code    ${response}    400
+    Validar Mensagem Da Resposta    ${response}    Domínio do email não permitido
 
 Cenario U-007 - Deve Cadastrar Usuario com Email do Hotmail (P2)
     ${email}=    Gerar Email Restrito Dinamico    @hotmail.com
     ${nome}=    FakerLibrary.Name
     ${body}=    Create Dictionary    nome=${nome}    email=${email}    password=${SENHA_VALIDA}    administrador=true
-    ${response}=    POST On Session    serveRest    /usuarios    json=${body}
-    Validar Status Code    ${response}    201
-    ${id_usuario}=    Obter ID Da Resposta    ${response}
-    Deletar Usuario Pelo ID    ${id_usuario}
+    ${response}=    POST On Session    serveRest    /usuarios    json=${body}    expected_status=400
+    Validar Status Code    ${response}    400
+    Validar Mensagem Da Resposta    ${response}    Domínio do email não permitido
 
 Cenario U-008 - Deve Falhar ao Usar Email Já Existente (P2)
     ${email}    ${senha}    ${id_usuario}=    Cadastrar Usuario Novo Com Sucesso
