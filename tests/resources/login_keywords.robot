@@ -10,7 +10,7 @@ Gerar Usuario Aleatorio
     ${email}=    FakerLibrary.Email
     ${senha}=    Set Variable       ${SENHA_VALIDA}
     ${administrador}=    Set Variable    true
-    [Return]    ${nome}    ${email}    ${senha}    ${administrador}
+    RETURN    ${nome}    ${email}    ${senha}    ${administrador}
 
 Cadastrar Usuario Novo Com Sucesso
     ${nome}    ${email}    ${senha}    ${administrador}=    Gerar Usuario Aleatorio
@@ -19,7 +19,7 @@ Cadastrar Usuario Novo Com Sucesso
     Validar Status Code    ${response}    201
     Validar Mensagem Da Resposta    ${response}    Cadastro realizado com sucesso
     ${id_usuario}=    Obter ID Da Resposta    ${response}
-    [Return]    ${email}    ${senha}    ${id_usuario}
+    RETURN    ${email}    ${senha}    ${id_usuario}
 
 Fazer Login E Retornar Token
     [Arguments]    ${email}    ${senha}
@@ -29,7 +29,7 @@ Fazer Login E Retornar Token
     Validar Mensagem Da Resposta    ${response}    Login realizado com sucesso
     ${token_gerado}=    Set Variable    ${response.json()}[authorization]
     Set Suite Variable    ${TOKEN}    ${token_gerado}
-    [Return]    ${token_gerado}
+    RETURN    ${token_gerado}
 
 Setup Login Suite
     Criar Sessao Com URL Base    serveRest    ${BASE_URL}
