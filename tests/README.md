@@ -2,12 +2,30 @@
 
 Este projeto contém testes automatizados para a API ServeRest utilizando Robot Framework. Os testes cobrem funcionalidades de login, cadastro de usuários, gerenciamento de produtos, carrinho de compras e validações de segurança.
 
-## 📋 Pré-requisitos
+---
+
+## 🚀 Tecnologias Utilizadas  
+
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Jira](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white)
+![Confluence](https://img.shields.io/badge/Confluence-172B4D?style=for-the-badge&logo=confluence&logoColor=white)
+![TestRail](https://img.shields.io/badge/TestRail-0A0A0A?style=for-the-badge&logo=testrail&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Robot Framework](https://img.shields.io/badge/RobotFramework-000000?style=for-the-badge&logo=robot-framework&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=orange)
+
+---
+
+
+## Pré-requisitos
 
 - Python 3.8 ou superior
 - pip (gerenciador de pacotes do Python)
 
-## 🚀 Instalação
+## Instalação
 
 1. **Clone ou baixe o projeto**
    ```bash
@@ -20,7 +38,7 @@ Este projeto contém testes automatizados para a API ServeRest utilizando Robot 
    pip install -r requirements.txt
    ```
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 testes/
@@ -42,7 +60,7 @@ testes/
 └── README.md              # Este arquivo
 ```
 
-## 🧪 Suítes de Teste
+## Suítes de Teste
 
 ### 1. Login Tests (`login_tests.robot`)
 - **L-001**: Login válido e captura de token
@@ -78,7 +96,7 @@ testes/
 ### 5. Main Flow (`mainly_flow.robot`)
 - **E2E-001**: Fluxo completo de compra (cadastro produto → carrinho → conclusão)
 
-## ⚡ Executando os Testes
+## Executando os Testes
 
 ### Executar todos os testes
 ```bash
@@ -111,14 +129,14 @@ robot -L INFO tests/suites/login_tests.robot     # Log padrão
 robot -t "Cenario L-001*" -t "Cenario L-002*" tests/suites/login_tests.robot
 ```
 
-## 📊 Relatórios
+## Relatórios
 
 Após a execução, os seguintes arquivos são gerados:
 - `output.xml`: Dados de execução em XML
 - `log.html`: Log detalhado da execução
 - `report.html`: Relatório resumido dos resultados
 
-## 🔧 Configurações
+## Configurações
 
 ### Variáveis Principais (`tests/resources/variables.robot`)
 - `${BASE_URL}`: URL base da API ServeRest (https://serverest.dev)
@@ -130,7 +148,7 @@ Após a execução, os seguintes arquivos são gerados:
 ### Headers HTTP
 - `&{HEADER_DEFAULT}`: Content-Type=application/json
 
-## 🛠️ Keywords Principais
+## Keywords Principais
 
 ### API Keywords
 - `Criar Sessao Com URL Base`: Cria sessão HTTP
@@ -160,7 +178,7 @@ Após a execução, os seguintes arquivos são gerados:
 - `Buscar Usuario Por ID E Validar`: Busca e valida dados do usuário
 - `Gerar Email Restrito Dinamico`: Gera email com domínio específico
 
-## 📝 Notas Importantes
+## Notas Importantes
 
 1. **API ServeRest**: Os testes são executados contra a API pública https://serverest.dev
 2. **Dados Dinâmicos**: Todos os testes usam dados gerados dinamicamente para evitar conflitos
@@ -168,21 +186,32 @@ Após a execução, os seguintes arquivos são gerados:
 4. **Tokens**: Tokens de autenticação são gerenciados automaticamente
 5. **Validações**: A API ServeRest não implementa todas as validações esperadas (ex: tamanho de senha, domínios restritos)
 
-## 🔍 Validações Implementadas pela API
+## Validações Implementadas pela API
 
-✅ **Funcionam**:
+**Funcionam**:
 - Validação de email único
 - Validação de nome de produto único
 - Autenticação por token
 - Integridade referencial (usuário/produto com carrinho)
 
-❌ **Não implementadas pela API**:
+**Não implementadas pela API**:
 - Validação de tamanho mínimo/máximo de senha
 - Restrição de domínios de email (Gmail, Hotmail)
+- Mensagens de erro personalizadas
 
-## 📞 Suporte
+## Suporte
 
 Para dúvidas ou problemas:
 1. Verifique os logs em `log.html`
 2. Consulte a documentação do Robot Framework
 3. Verifique a documentação da API ServeRest em https://serverest.dev
+
+---
+
+## Autora  
+
+**Andressa Von Ahnt**  
+
+🔗 [LinkedIn](https://www.linkedin.com/in/andressa-von-ahnt-831556363) | 📧 andressavahnt@gmail.com  
+
+---
