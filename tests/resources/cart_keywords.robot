@@ -13,7 +13,7 @@ Criar Carrinho Com Produto
     Validar Status Code    ${response}    201
     Validar Mensagem Da Resposta    ${response}    Cadastro realizado com sucesso
     ${id_carrinho}=    Obter ID Da Resposta    ${response}
-    [Return]    ${id_carrinho}
+    RETURN    ${id_carrinho}
 
 Cancelar Compra
     [Arguments]    ${token}

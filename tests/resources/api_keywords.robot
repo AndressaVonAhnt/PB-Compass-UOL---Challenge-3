@@ -24,4 +24,4 @@ Validar Que Mensagem Contem Texto
 Obter ID Da Resposta
     [Arguments]    ${response}
     ${id}=    Set Variable    ${response.json()}[_id]
-    [Return]    ${id}
+    RETURN    ${id}

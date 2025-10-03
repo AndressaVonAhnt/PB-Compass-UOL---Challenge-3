@@ -9,7 +9,7 @@ Gerar Produto Aleatorio
     ${preco}=    FakerLibrary.Random Int    min=1    max=999
     ${descricao}=    FakerLibrary.Text
     ${quantidade}=    FakerLibrary.Random Int    min=1    max=10
-    [Return]    ${nome_produto}    ${preco}    ${descricao}    ${quantidade}
+    RETURN    ${nome_produto}    ${preco}    ${descricao}    ${quantidade}
 
 Cadastrar Produto Valido E Retornar ID
     [Arguments]    ${token}
@@ -19,7 +19,7 @@ Cadastrar Produto Valido E Retornar ID
     ${response}=    POST On Session    serveRest    /produtos    json=${body}    headers=${headers}
     Validar Status Code    ${response}    201
     ${id_produto}=    Obter ID Da Resposta    ${response}
-    [Return]    ${id_produto}    ${nome}
+    RETURN    ${id_produto}    ${nome}
 
 Deletar Produto Pelo ID
     [Arguments]    ${id_produto}    ${token}
